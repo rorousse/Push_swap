@@ -14,6 +14,8 @@ struct s_problem
 {
 	t_pile	*a;
 	t_pile	*b;
+	int		*resolved;
+	unsigned int	size;
 };
 
 typedef struct s_problem t_problem;
@@ -22,9 +24,10 @@ typedef struct s_problem t_problem;
 ** PILE_C
 */
 
-void	beg_pile(t_pile **target);
-void	aff_pile(t_pile *target);
-void	free_pile(t_pile *target);
+unsigned int	get_size_pile(t_pile *target);
+void			beg_pile(t_pile **target);
+void			aff_pile(t_pile *target);
+void			free_pile(t_pile *target);
 
 /*
 ** PUSH_C
@@ -48,5 +51,13 @@ void	reverse_all(t_problem *subject);
 
 void	swap_pile(t_pile **pile);
 void	swap_all(t_problem *subject);
+
+/*
+** TRI_C
+*/
+
+void	aff_tab(int *mytab, unsigned int taille);
+void	tri_tab(int *mytab, unsigned int taille);
+void	insert_tri(t_problem *subject);
 
 #endif

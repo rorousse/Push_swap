@@ -2,6 +2,21 @@
 #include "libft.h"
 #include <stdlib.h>
 
+unsigned int	get_size_pile(t_pile *target)
+{
+	unsigned int	i;
+
+	i = 1;
+	if (target == NULL)
+		return (0);
+	while (target->next != NULL)
+	{
+		target = target->next;
+		i++;
+	}
+	return (i);
+}
+
 void	beg_pile(t_pile **target)
 {
 	if (*target != NULL)

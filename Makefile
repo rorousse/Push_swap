@@ -19,6 +19,7 @@ SRC = 	main.c		\
 		push.c		\
 		swap.c		\
 		rotate.c	\
+		tri.c		\
 
 LIBS = libft/libft.a
 OBJNAME= $(SRC:.c=.o)

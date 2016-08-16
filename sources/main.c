@@ -37,9 +37,8 @@ int main(int argc, char **argv)
 	{
 		init_problem(&subject, argc, argv);
 		aff_pile(subject.a);
-		reverse_rotate(&(subject.a));
-		aff_pile(subject.a);
-		free_pile(subject.a);
+		insert_tri(&subject);
+		aff_tab(subject.resolved, subject.size);
 	}
 	ft_putendl("Done.");
 	while (1);
