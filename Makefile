@@ -14,9 +14,11 @@ NAME = push_swap
 HEADERS = headers/
 SRC_PATH=./sources/
 OBJ_PATH=./objs/
-SRC = 	main.c	\
-		pile.c	\
-		push.c	\
+SRC = 	main.c		\
+		pile.c		\
+		push.c		\
+		swap.c		\
+		rotate.c	\
 
 LIBS = libft/libft.a
 OBJNAME= $(SRC:.c=.o)

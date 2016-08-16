@@ -37,12 +37,9 @@ int main(int argc, char **argv)
 	{
 		init_problem(&subject, argc, argv);
 		aff_pile(subject.a);
-		push_b(&subject);
-		ft_putendl("push ok");
+		reverse_rotate(&(subject.a));
 		aff_pile(subject.a);
-		aff_pile(subject.b);
 		free_pile(subject.a);
-		free_pile(subject.b);
 	}
 	ft_putendl("Done.");
 	while (1);

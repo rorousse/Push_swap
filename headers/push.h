@@ -33,4 +33,20 @@ void	free_pile(t_pile *target);
 void	push_a(t_problem *subject);
 void	push_b(t_problem *subject);
 
+/*
+** ROTATE_H
+*/
+
+void	rotate_pile(t_pile **pile);
+void	reverse_rotate(t_pile **pile);
+void	rotate_all(t_problem *subject);
+void	reverse_all(t_problem *subject);
+
+/*
+**	SWAP_H
+*/
+
+void	swap_pile(t_pile **pile);
+void	swap_all(t_problem *subject);
+
 #endif
