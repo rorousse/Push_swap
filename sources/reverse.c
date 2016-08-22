@@ -1,6 +1,9 @@
 #include "push.h"
 #include <stdlib.h>
 
+#include "libft.h"
+#include <stdio.h>
+
 void	reverse_rotate(t_pile **pile)
 {
 	t_pile *temp;
@@ -13,6 +16,7 @@ void	reverse_rotate(t_pile **pile)
 		(temp->prec)->next = NULL;
 		temp->prec = NULL;
 		temp->next = *pile;
+		(*pile)->prec = temp;
 		*pile = temp;
 	}
 }

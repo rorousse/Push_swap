@@ -15,7 +15,8 @@ void	push_a(t_problem *subject)
 		if (subject->a != NULL)
 			(subject->a)->prec = temp;
 		subject->a = temp;
-		(subject->b)->prec = NULL;
+		if (subject->b != NULL)
+			(subject->b)->prec = NULL;
 	}
 }
 
@@ -31,6 +32,7 @@ void	push_b(t_problem *subject)
 		if (subject->b != NULL)
 			(subject->b)->prec = temp;
 		subject->b = temp;
-		(subject->a)->prec = NULL;
+		if (subject->a != NULL)
+			(subject->a)->prec = NULL;
 	}
 }

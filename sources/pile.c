@@ -2,6 +2,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
+
+#include <stdio.h>
+
 unsigned int	get_size_pile(t_pile *target)
 {
 	unsigned int	i;
@@ -33,6 +36,7 @@ void	aff_pile(t_pile *target)
 	{
 		ft_putnbr(target->valeur);
 		ft_putchar(' ');
+		printf("le prec est %p\n", target->prec);
 		target = target->next;
 	}
 	ft_putchar('\n');

@@ -64,6 +64,8 @@ void	aff_essai(t_try essai, int end)
 	int	i;
 
 	i = 0;
+	if (essai.seq[i] == NULL)
+		ft_putendl("BUG BITCH");
 	while (essai.seq[i] != NULL && i < end)
 	{
 		aff_action(essai.seq[i]);
