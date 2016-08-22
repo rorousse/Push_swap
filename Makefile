@@ -20,6 +20,11 @@ SRC = 	main.c		\
 		swap.c		\
 		rotate.c	\
 		tri.c		\
+		end.c		\
+		check.c		\
+		resolve.c	\
+		reverse.c	\
+		tab_ptr.c	\
 
 LIBS = libft/libft.a
 OBJNAME= $(SRC:.c=.o)

@@ -16,6 +16,16 @@ void	swap_pile(t_pile **pile)
 	}
 }
 
+void	swap_a(t_problem *subject)
+{
+	swap_pile(&(subject->a));
+}
+
+void	swap_b(t_problem *subject)
+{
+	swap_pile(&(subject->b));
+}
+
 void	swap_all(t_problem *subject)
 {
 	swap_pile(&(subject->a));

@@ -31,16 +31,18 @@ static void init_problem(t_problem *subject, int argc, char **argv)
 
 int main(int argc, char **argv)
 {
+	int			end;
 	t_problem subject;
+	t_try		essai;
 
+	end = 100;
 	if (argc > 1)
 	{
 		init_problem(&subject, argc, argv);
-		aff_pile(subject.a);
-		insert_tri(&subject);
-		aff_tab(subject.resolved, subject.size);
+		init_try(&essai, end);
+		resolve(&subject, essai, end);
+		aff_essai(essai, end);
 	}
 	ft_putendl("Done.");
-	while (1);
 	return (0);
 }
