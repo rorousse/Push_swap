@@ -62,6 +62,5 @@ void	insert_tri(t_problem *subject)
 {
 	subject->size = get_size_pile(subject->a);
 	subject->resolved = create_res(subject->a, subject->size);
-	aff_tab(subject->resolved, subject->size);
 	tri_tab(subject->resolved, subject->size);
 }

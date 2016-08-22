@@ -1,6 +1,10 @@
 #include "push.h"
 #include <stdlib.h>
 
+
+#include <stdio.h>
+#include "libft.h"
+
 static int	check_auth_action(t_try essai, int i, t_action ft)
 {
 	if (i == 0)
@@ -58,7 +62,9 @@ int	resolve(t_problem *subject, t_try essai, int end)
 	essai.step++;
 	min = end;
 	if (essai.step == end || check_win(subject))
+	{
 		return (essai.step);
+	}
 	while (i < 11)
 	{
 		test_action(subject, essai, &min, ft[i]);

@@ -27,6 +27,7 @@ static void init_problem(t_problem *subject, int argc, char **argv)
 		i++;
 	}
 	beg_pile(&(subject->a));
+	insert_tri(subject);
 }
 
 int main(int argc, char **argv)

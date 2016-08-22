@@ -27,7 +27,6 @@ void	push_b(t_problem *subject)
 	{
 		temp = subject->a;
 		subject->a = (subject->a)->next;
-		printf("la valeur de a est maintenant %d\n", (subject->a)->valeur);
 		temp->next = subject->b;
 		if (subject->b != NULL)
 			(subject->b)->prec = temp;
