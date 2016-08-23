@@ -5,6 +5,17 @@
 #include <stdio.h>
 #include "libft.h"
 
+static void check_bug(t_problem *subject, t_try essai)
+{
+	ft_putendl("debut");
+	if (get_size_pile(subject->a) + get_size_pile(subject->b) != 3)
+	{
+		ft_putendl("BUUUUUUUUUUUUUG");
+		aff_essai(essai);
+	}
+	ft_putendl("fin");
+}
+
 static int	check_action(t_problem *subject, t_action ft)
 {
 	if (ft.ft_ptr == swap_a && subject->a == NULL)
@@ -67,6 +78,12 @@ static void	test_action(t_problem *subject, t_try essai, t_action ft)
 	i = essai.step;
 	if (check_auth_action(subject, essai, i, ft))
 	{
+		if (i == 0)
+		{
+			ft_putendl("Test au niveau 0");
+			aff_pile(subject->a);
+			aff_pile(subject->b);
+		}
 		prec_min = *(essai.min);
 		temp = essai.seq[i];
 		essai.seq[i] = ft.ft_ptr;
@@ -86,11 +103,16 @@ void	resolve(t_problem *subject, t_try essai)
  	i = 0;
  	init_tab_ptr(ft);
 	essai.step++;
+	check_bug(subject, essai);
 	if (essai.step == *(essai.min))
+	{
+		essai.seq[essai.step] = NULL;
 		return ;
+	}
 	if (check_win(subject))
 	{
 		ft_putendl("bingo");
+		aff_essai(essai);
 		*(essai.min) = essai.step;
 		return;
 	}

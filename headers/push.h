@@ -105,7 +105,7 @@ void	swap_all(t_problem *subject);
 
 void	init_tab_ptr(t_action ft[11]);
 void	init_try(t_try *essai, int end);
-void	aff_essai(t_try essai, int end);
+void	aff_essai(t_try essai);
 
 /*
 ** TRI_C

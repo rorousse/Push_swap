@@ -61,14 +61,14 @@ void	init_try(t_try *essai, int end)
 	essai->seq = (void (**)(t_problem *))malloc(end * sizeof(void*));
 }
 
-void	aff_essai(t_try essai, int end)
+void	aff_essai(t_try essai)
 {
 	int	i;
 
 	i = 0;
 	if (essai.seq[i] == NULL)
 		ft_putendl("BUG BITCH");
-	while (essai.seq[i] != NULL && i < end)
+	while (essai.seq[i] != NULL && i <= *(essai.min))
 	{
 		aff_action(essai.seq[i]);
 		i++;

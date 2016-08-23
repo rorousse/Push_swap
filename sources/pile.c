@@ -5,6 +5,17 @@
 
 #include <stdio.h>
 
+void	beg_pile(t_pile **target)
+{
+	if (*target != NULL)
+	{
+		while ((*target)->prec != NULL)
+		{
+			*target = (*target)->prec;
+		}
+	}
+}
+
 unsigned int	get_size_pile(t_pile *target)
 {
 	unsigned int	i;
@@ -17,16 +28,8 @@ unsigned int	get_size_pile(t_pile *target)
 		target = target->next;
 		i++;
 	}
+	beg_pile(&target);
 	return (i);
-}
-
-void	beg_pile(t_pile **target)
-{
-	if (*target != NULL)
-	{
-		while ((*target)->prec != NULL)
-			*target = (*target)->prec;
-	}
 }
 
 void	aff_pile(t_pile *target)
