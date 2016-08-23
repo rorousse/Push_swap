@@ -56,6 +56,8 @@ void	init_tab_ptr(t_action ft[11])
 void	init_try(t_try *essai, int end)
 {
 	essai->step = -1;
+	essai->min = (int*)malloc(sizeof(int));
+	(*essai->min) = end;
 	essai->seq = (void (**)(t_problem *))malloc(end * sizeof(void*));
 }
 

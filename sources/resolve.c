@@ -58,47 +58,46 @@ static int	check_win(t_problem *subject)
 	return (1);
 }
 
-static void	test_action(t_problem *subject, t_try essai, int *min, t_action ft)
+static void	test_action(t_problem *subject, t_try essai, t_action ft)
 {
 	int	i;
-	int	res;
+	int	prec_min;
+	void	(*temp)(t_problem *subject);
 
 	i = essai.step;
 	if (check_auth_action(subject, essai, i, ft))
 	{
+		prec_min = *(essai.min);
+		temp = essai.seq[i];
 		essai.seq[i] = ft.ft_ptr;
 		(*(ft.ft_ptr))(subject);
-		res = resolve(subject, essai, *min);
-		if (res < *min)
-			*min = res;
-		else
-			essai.seq[i] = NULL;
+		resolve(subject, essai);
+		if (prec_min == *(essai.min))
+			essai.seq[i] = temp;
 		(*(ft.ft_rev_ptr))(subject);
 	}
 }
 
-int	resolve(t_problem *subject, t_try essai, int end)
+void	resolve(t_problem *subject, t_try essai)
 {
 	int i;
-	int min;
 	t_action ft[11];
 
  	i = 0;
  	init_tab_ptr(ft);
 	essai.step++;
-	min = end;
-	if (essai.step == end)
-		return (end);
-	if ( check_win(subject))
+	if (essai.step == *(essai.min))
+		return ;
+	if (check_win(subject))
 	{
 		ft_putendl("bingo");
-		return (essai.step);
+		*(essai.min) = essai.step;
+		return;
 	}
 	while (i < 11)
 	{
 	//	printf("On test le numero %d step %d\n", i , essai.step);
-		test_action(subject, essai, &min, ft[i]);
+		test_action(subject, essai, ft[i]);
 		i++;
 	}
-	return (min);
 }

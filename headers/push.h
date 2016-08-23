@@ -23,6 +23,7 @@ typedef struct s_problem t_problem;
 struct s_try
 {
 	int step;
+	int	*min;
 	void	(**seq)(t_problem *subject);
 };
 
@@ -68,7 +69,7 @@ void	push_b(t_problem *subject);
 ** RESOLVE_C
 */
 
-int		resolve(t_problem *subject, t_try essai, int end);
+void		resolve(t_problem *subject, t_try essai);
 
 /*
 ** REVERSE_C

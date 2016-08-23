@@ -36,12 +36,12 @@ int main(int argc, char **argv)
 	t_problem subject;
 	t_try		essai;
 
-	end = 3;
+	end = 10;
 	if (argc > 1)
 	{
 		init_problem(&subject, argc, argv);
 		init_try(&essai, end);
-		resolve(&subject, essai, end);
+		resolve(&subject, essai);
 		aff_essai(essai, end);
 	}
 	ft_putendl("Done.");
