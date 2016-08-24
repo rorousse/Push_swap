@@ -19,16 +19,17 @@ void	beg_pile(t_pile **target)
 unsigned int	get_size_pile(t_pile *target)
 {
 	unsigned int	i;
+	t_pile			*temp;
 
 	i = 1;
 	if (target == NULL)
 		return (0);
-	while (target->next != NULL)
+	temp = target;
+	while (temp->next != NULL)
 	{
-		target = target->next;
+		temp = temp->next;
 		i++;
 	}
-	beg_pile(&target);
 	return (i);
 }
 
@@ -39,7 +40,7 @@ void	aff_pile(t_pile *target)
 	{
 		ft_putnbr(target->valeur);
 		ft_putchar(' ');
-		printf("le prec est %p\n", target->prec);
+		printf("l'adresse est %p et le prec est %p\n", target, target->prec);
 		target = target->next;
 	}
 	ft_putchar('\n');

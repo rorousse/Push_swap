@@ -7,13 +7,11 @@
 
 static void check_bug(t_problem *subject, t_try essai)
 {
-	ft_putendl("debut");
 	if (get_size_pile(subject->a) + get_size_pile(subject->b) != 3)
 	{
 		ft_putendl("BUUUUUUUUUUUUUG");
 		aff_essai(essai);
 	}
-	ft_putendl("fin");
 }
 
 static int	check_action(t_problem *subject, t_action ft)
@@ -78,12 +76,6 @@ static void	test_action(t_problem *subject, t_try essai, t_action ft)
 	i = essai.step;
 	if (check_auth_action(subject, essai, i, ft))
 	{
-		if (i == 0)
-		{
-			ft_putendl("Test au niveau 0");
-			aff_pile(subject->a);
-			aff_pile(subject->b);
-		}
 		prec_min = *(essai.min);
 		temp = essai.seq[i];
 		essai.seq[i] = ft.ft_ptr;
@@ -118,6 +110,8 @@ void	resolve(t_problem *subject, t_try essai)
 	}
 	while (i < 11)
 	{
+		if (essai.step == 0 && get_size_pile(subject->a) != 3)
+			printf("BUG lors de l'appel a la fonction %d\n",i);
 	//	printf("On test le numero %d step %d\n", i , essai.step);
 		test_action(subject, essai, ft[i]);
 		i++;

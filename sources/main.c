@@ -42,8 +42,10 @@ int main(int argc, char **argv)
 		init_problem(&subject, argc, argv);
 		init_try(&essai, end);
 		resolve(&subject, essai);
+		//reverse_a(&subject);
 		ft_putendl("RESULTAT FINAL -----");
 		aff_essai(essai);
+		//aff_pile(subject.b);
 	}
 	ft_putendl("Done.");
 	return (0);

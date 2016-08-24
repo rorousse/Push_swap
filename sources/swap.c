@@ -1,6 +1,7 @@
 #include "push.h"
 #include <stdlib.h>
 
+
 void	swap_pile(t_pile **pile)
 {
 	t_pile *temp;
@@ -9,6 +10,8 @@ void	swap_pile(t_pile **pile)
 	{
 		temp = (*pile)->next;
 		(*pile)->next = temp->next;
+		if ((*pile)->next != NULL)
+			((*pile)->next)->prec = *pile;
 		(*pile)->prec = temp;
 		temp->next = *pile;
 		temp->prec = NULL;
