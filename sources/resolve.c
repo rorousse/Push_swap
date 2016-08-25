@@ -101,17 +101,17 @@ void	resolve(t_problem *subject, t_try essai)
 	}
 	if (check_win(subject))
 	{
-		ft_putendl("bingo");
-		aff_essai(essai);
 		*(essai.min) = essai.step;
+		i = *(essai.min);
+		while (essai.seq[i] != NULL)
+		{
+			essai.seq[i] = NULL;
+			i++;
+		}
 		return;
 	}
 	while (i < 11)
 	{
-		if (essai.step == 0)
-		{
-			printf("le min est %d\n", *(essai.min));
-		}
 		test_action(subject, essai, ft[i]);
 		i++;
 	}
