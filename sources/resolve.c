@@ -101,6 +101,7 @@ void	resolve(t_problem *subject, t_try essai)
 	}
 	if (check_win(subject))
 	{
+		printf("bingo, le min est %d\n", essai.step);
 		*(essai.min) = essai.step;
 		i = *(essai.min);
 		while (essai.seq[i] != NULL)
@@ -113,6 +114,8 @@ void	resolve(t_problem *subject, t_try essai)
 	while (i < 11)
 	{
 		test_action(subject, essai, ft[i]);
+		if (essai.step == 0)
+			ft_putendl("Test completed");
 		i++;
 	}
 }

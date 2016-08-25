@@ -61,7 +61,7 @@ void	init_try(t_try *essai, int end)
 	essai->step = -1;
 	essai->min = (int*)malloc(sizeof(int));
 	(*essai->min) = end;
-	essai->seq = (void (**)(t_problem *))malloc(end * sizeof(void*));
+	essai->seq = (void (**)(t_problem *))malloc((end + 1) * sizeof(void*));
 	while (i < end)
 	{
 		essai->seq[i] = NULL;
