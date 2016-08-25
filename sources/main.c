@@ -36,15 +36,16 @@ int main(int argc, char **argv)
 	t_problem subject;
 	t_try		essai;
 
-	end = 5;
+	end = 10;
 	if (argc > 1)
 	{
 		init_problem(&subject, argc, argv);
 		init_try(&essai, end);
 		resolve(&subject, essai);
-		//reverse_a(&subject);
+		//push_a(&subject);
 		ft_putendl("RESULTAT FINAL -----");
 		aff_essai(essai);
+		//aff_pile(subject.a);
 		//aff_pile(subject.b);
 	}
 	ft_putendl("Done.");

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "libft.h"
 
+/*
 static void check_bug(t_problem *subject, t_try essai)
 {
 	if (get_size_pile(subject->a) + get_size_pile(subject->b) != 3)
@@ -13,7 +14,7 @@ static void check_bug(t_problem *subject, t_try essai)
 		aff_essai(essai);
 	}
 }
-
+*/
 static int	check_action(t_problem *subject, t_action ft)
 {
 	if (ft.ft_ptr == swap_a && subject->a == NULL)
@@ -43,9 +44,7 @@ static int	check_action(t_problem *subject, t_action ft)
 
 static int	check_auth_action(t_problem *subject, t_try essai, int i, t_action ft)
 {
-	if (i == 0)
-		return (1);
-	if (essai.seq[i - 1] == ft.ft_rev_ptr)
+	if (i != 0 && essai.seq[i - 1] == ft.ft_rev_ptr)
 		return (0);
 	return (check_action(subject, ft));
 }
@@ -95,7 +94,6 @@ void	resolve(t_problem *subject, t_try essai)
  	i = 0;
  	init_tab_ptr(ft);
 	essai.step++;
-	check_bug(subject, essai);
 	if (essai.step == *(essai.min))
 	{
 		essai.seq[essai.step] = NULL;
@@ -110,9 +108,10 @@ void	resolve(t_problem *subject, t_try essai)
 	}
 	while (i < 11)
 	{
-		if (essai.step == 0 && get_size_pile(subject->a) != 3)
-			printf("BUG lors de l'appel a la fonction %d\n",i);
-	//	printf("On test le numero %d step %d\n", i , essai.step);
+		if (essai.step == 0)
+		{
+			printf("le min est %d\n", *(essai.min));
+		}
 		test_action(subject, essai, ft[i]);
 		i++;
 	}

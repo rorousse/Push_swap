@@ -1,7 +1,7 @@
 #include "push.h"
 #include "libft.h"
 
-static void	aff_action(void	(*ft_ptr)(t_problem *subject))
+void	aff_action(void	(*ft_ptr)(t_problem *subject))
 {
 	if (ft_ptr == swap_a)
 		ft_putendl("sa");
@@ -55,10 +55,18 @@ void	init_tab_ptr(t_action ft[11])
 
 void	init_try(t_try *essai, int end)
 {
+	int	i;
+
+	i = 0;
 	essai->step = -1;
 	essai->min = (int*)malloc(sizeof(int));
 	(*essai->min) = end;
 	essai->seq = (void (**)(t_problem *))malloc(end * sizeof(void*));
+	while (i < end)
+	{
+		essai->seq[i] = NULL;
+		i++;
+	}
 }
 
 void	aff_essai(t_try essai)
